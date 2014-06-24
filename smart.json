@@ -1,0 +1,10 @@
+{
+  "packages": {
+    "spin": {},
+    "paypal": {},
+    "fileCollection": {},
+    "iron-router": {},
+    "iron-router-progress": {},
+    "accounts-ui-bootstrap-dropdown": {}
+  }
+}
