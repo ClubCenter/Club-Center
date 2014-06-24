@@ -1,0 +1,49 @@
+//Accounts, myFiles, and Notifs are universal
+//Posts/Comments, Questions/Answers, Files, Forums, and Payment are Session specific
+
+//Don't do things in the order listed. 
+//Prioritize starred items
+
+1. Multi-Club Session control
+2. Accounts Directory 
+3.. Skype discussions
+4. Legit admin system
+5. account banning  
+6. private messaging 
+7. File sharing
+8. Account specific distributions 
+9. Email chaining w/ Google Groups 
+
+*10. Infinity Scroll Wrapping(pages.js on atmosphere)
+
+11. Product image system 
+12. Payment Screen Redesign 
+
+13. Add straight credit card system-- Don't enable until SSL is received
+
+14. Fix Design Issues everywhere
+15. Add headers to all pages
+
+16. Polls/ Poll Questions
+
+17. Search features
+
+18. File Sorting/Invoice Sorting
+
+19. Make pinning more user friendly
+
+20. streamline subscriptions for mobile systems
+
+21. Make Refunding system more graphic ("refunding", "refund failed")
+22. Make invoices monthly
+23. Add Total to bottom of invoice system with refunding fee taken out
+
+24. Rebuff error system
+
+*25. Simplify public/private files questioning/ switching
+
+26. Add North Korean Refugee charity sponsor game(?)
+
+
+
+
