@@ -1,0 +1,58 @@
+<template name="invoiceSheet">
+	<p> Invoices </p>
+	<table class="table table-bordered table-striped">
+		<thead>
+        <tr>
+          <th>Buyer</th>
+          
+          <th>Product</th>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Received</th>
+          <th>Refund</th>
+        </tr>
+      </thead>
+      <tbody>
+	{{#each invoices}}
+		{{> invoiceItem}}
+	{{/each}}
+</tbody>
+</table>
+</template>
+
+<template name="invoiceItem">
+	<tr>
+          <td>
+            <p>{{buyer}}</p> 
+          </td>
+          
+          <td>
+            <p>{{ptitle}}</p>
+          </td>
+          
+          
+          <td>
+           	<p> {{formattedTime}}</p>
+          </td>
+          <td>
+          	<p> ${{amount}}</p>
+          </td>
+          <td style="align: right">
+          		{{#if received}}
+          			<p>Received</p>
+          		{{else}}
+          			 <button type="button" class="close xyz" aria-hidden="true">Give Item</button>
+          		{{/if}}
+          </td>
+          <td style="align: right">
+          	{{#if refunded}}
+          	
+          		<p> Refunded</p>
+         	
+          	{{else}}
+            <button type="button" class="close del-file">Refund</button>
+        	
+        	{{/if}}
+          </td>
+        </tr>     
+</template>

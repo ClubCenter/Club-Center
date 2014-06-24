@@ -1,0 +1,18 @@
+<template name="layout">
+	<div class= "wrapper">
+	<div class="container">
+		{{>header}}
+		{{>errors}}
+	
+		<div id="main" class="row-fluid">
+			{{>yield}}
+		</div>
+		
+	</div>
+	<div class="push"></div>
+</div>
+	<div class="footer">
+            {{>banner}}
+        </div>
+	
+</template>

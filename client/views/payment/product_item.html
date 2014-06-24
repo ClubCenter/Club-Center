@@ -1,0 +1,10 @@
+<template name="productItem">
+	<button class="buy-product" >Buy {{title}}</button>
+	<body>${{price}}</body>
+	<pre style="word-break: keep-all">{{description}}</pre>
+	<a href="{{pathFor 'productEdit'}}">Edit</a>
+</template>
+
+<template name="DashboardPaymentPaypalExecute">
+  <span class="loading">Wait a few seconds, we are processing your payment.</span>
+</template>

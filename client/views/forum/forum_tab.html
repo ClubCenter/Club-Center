@@ -1,0 +1,36 @@
+<template name="forumTabs">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		Forums
+		
+		<b class="caret"></b>
+	</a>
+	<ul class="notification dropdown-menu">
+
+			{{#each forums}}
+				{{> forumTab}}
+			{{/each}}
+			
+			{{#if admin}} 
+			<li>
+			<a href= "{{pathFor 'forumAdd'}}" aria-hidden="true">
+				Add New Forum
+			</a>
+			</li>
+			{{/if}}
+		
+		
+	</ul>
+</template>
+
+<template name="forumTab">
+	
+		{{#if admin}}
+		<p><a href="{{forumPath}}"><strong>{{title}}</strong></a><button type="button" class="close del-forum" aria-hidden="true">&times;</button></p>
+		{{else}}
+		<li>
+			<a href="{{forumPath}}"><strong>{{title}}</strong></a>
+		</li>
+		{{/if}}
+		
+	
+</template>

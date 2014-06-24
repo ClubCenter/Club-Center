@@ -1,0 +1,24 @@
+<template name="answerEdit">
+	
+		<form class="main">
+			<div class="control-group">
+				<label class="control-label" for="message">Message</label>
+				<div class="controls">
+					<textarea name="body" type="text">{{originalText}}</textarea>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="controls">
+					<input type="submit" value="Submit" class="btn btn-primary submit"/>
+				</div>
+			</div>
+			<hr/>
+			<div class="control-group">
+				<div class="controls">
+					<a class="btn btn-danger delete" href="#">Delete Answer</a>
+				</div>
+			</div>
+		</form>
+	
+</template>

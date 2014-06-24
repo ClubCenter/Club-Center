@@ -1,0 +1,17 @@
+<template name="sendbar">
+	<div class="txt-center">
+		<textarea type="con" id="msg"></textarea>
+		<button class = "con-button">Send</button>
+	</div>
+</template>
+<template name="chats">
+
+	<div id='list' class="well well-lg">
+		{{#each showMessages}}
+		<pre style="word-break: keep-all"><strong>{{author}}</strong>: {{text}}</pre>
+		
+		{{/each}}
+		
+	</div>
+
+</template>

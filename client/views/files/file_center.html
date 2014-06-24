@@ -1,0 +1,58 @@
+<template name="collTest">
+   <div id="fileDropID">
+    <div class="container panel fileDrop">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Owner</th>
+          <th>Size</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each dataEntries}}
+        <tr>
+          <td>
+            <a href="{{link}}?download=true">{{filename}}</a>
+            <button type="button" class="close del-file" aria-hidden="true">&times;</button>
+          </td>
+          
+          <td>
+          		{{owner}}	
+          </td>
+          <td>
+            {{#if length}}
+              {{fixlength}}
+            {{else}}
+              {{uploadStatus}}
+              <div class="progress" hidden= "true">
+                <div class="progress-bar" role="progressbar" min-width="60px" aria-valuenow="{{uploadProgress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{uploadProgress}}%;">
+                    <span class="text-muted">{{uploadProgress}}%</span>
+                </div>
+              </div>
+            {{/if}}
+          </td>
+          
+          
+          <td>
+            {{time}}
+          </td>
+        </tr>
+        
+      {{else}}
+        <tr><td colspan="20" align=center>
+          <span class="text-info">
+           No files in collection
+          </span>
+        </td></tr>
+      {{/each}}
+      <td colspan="20" align=center>
+          <span class="text-info">Drag a file here to upload</span>
+        </td>
+      </tbody>
+    </table>
+    <button class="fileBrowse">File Browser</button>
+  </div>
+</div>
+</template>

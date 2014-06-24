@@ -1,0 +1,26 @@
+<template name = "postItem">
+		<div class="post">
+			<div class="post-content" >
+				<h3><a href="{{pathFor 'postPage'}}" onClick = "Meteor.reconnect()">{{title}}</a></h3>
+				<p>
+					submitted by {{author}} and is 
+					{{#if pinned}}
+						Pinned
+					{{else}}
+						Regular
+					{{/if}}
+				{{#if inPost}}	
+					{{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}}
+				{{/if}}
+				</p>
+				{{#if inPost}}
+				<pre style="word-break: keep-all">{{message}}</pre>
+				{{/if}}
+				<p>
+					<a href="{{pathFor 'postPage'}}"  onClick = "Meteor.reconnect()">{{commentsCount}} comments</a>
+				</p>
+			</div>
+
+			<a href="{{pathFor 'postPage'}}" class="discuss btn">More Info</a>
+		</div>
+</template>

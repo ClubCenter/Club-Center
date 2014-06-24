@@ -1,0 +1,14 @@
+<template name="questionPage">
+	{{>questionItem}}
+	<ul class="comments">
+		{{#each answers}}
+			{{> answer}}
+		{{/each}}
+
+	</ul>
+		{{#if currentUser}}
+			{{> answerSubmit}}
+		{{else}}
+			<p>Please log in to leave your answer.</p>
+		{{/if}}
+</template>

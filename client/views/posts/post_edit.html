@@ -1,0 +1,42 @@
+<template name="postEdit">
+	
+		<form class="main">
+			<div class="control-group">
+				<label class="control-label" for="message">Title</label>
+				<div class="controls">
+					<input name="title" type="text" value="{{title}}" placeholder="Name your post"/>
+				</div>
+			<div class="control-group">
+				<label class="control-label" for="title">Message</label>
+				
+				<div class="controls">
+					<textarea name="message" type="text">{{message}}</textarea>
+				</div>
+			</div>
+				
+			</div>
+			<div class= "control-group">
+			<label class="control-label" for="title">Pin It (Don't Enter anything for a regular post)</label>
+			<div class="controls">
+				{{#if pinned}}
+				<input name="pin" type="text" value="{{pinned}}"/>
+				{{else}}
+				<input name="pin" type="text" value=""/>
+				{{/if}}
+				
+			</div>
+		</div>
+			<div class="control-group">
+				<div class="controls">
+					<input type="submit" value="Submit" class="btn btn-primary submit"/>
+				</div>
+			</div>
+			<hr/>
+			<div class="control-group">
+				<div class="controls">
+					<a class="btn btn-danger delete" href="#">Delete post</a>
+				</div>
+			</div>
+		</form>
+	
+</template>

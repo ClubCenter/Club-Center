@@ -1,0 +1,21 @@
+<template name = "questionItem">
+		<div class="post">
+			<div class="post-content" >
+				<h3><a href="{{pathFor 'questionPage'}}">{{title}}</a></h3>
+				<p>
+					Question submitted by {{author}}
+				{{#if inQuestion}}	
+					{{#if ownQuestion}}<a href="{{pathFor 'questionEdit'}}">Edit</a>{{/if}}
+				{{/if}}
+				</p>
+				{{#if inQuestion}}
+				<pre style="word-break: keep-all">{{message}}</pre>
+				{{/if}}
+				<p>
+					<a href="{{pathFor 'questionPage'}}">{{answersCount}} answers</a>
+				</p>
+			</div>
+
+			<a href="{{pathFor 'questionPage'}}" class="discuss btn">More Info</a>
+		</div>
+</template>

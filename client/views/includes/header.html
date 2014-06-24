@@ -1,0 +1,47 @@
+<template name ="header">
+	<header class="navbar">
+		<div class="navbar-inner">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			
+			<div class="nav-collapse collapse">
+
+				<ul class="nav">
+					<li><a class="brand" href="{{pathFor 'postsList'}}">Congregation</a></li>
+					<li> <a href="{{pathFor 'questionsList'}}">Questions Board</a></li>
+					{{#if admin}}<li><a href="{{pathFor 'postSubmit'}}">New Post</a></li>
+					{{/if}}
+					{{#if currentUser}}
+					<li class="dropdown">
+						{{>notifications}}
+					</li>
+					<li> 
+						<a href="{{pathFor 'questionSubmit'}}">New Question</a>
+					</li>
+					{{/if}}
+					<li class="dropdown">
+						{{>forumTabs}}
+							
+					</li>
+					<li>
+						<a href="{{pathFor 'collTest'}}">File Center</a>
+					</li>
+					<li><a href="{{pathFor 'DashboardRoot'}}">Payment</a></li>
+					<li><a href="{{pathFor 'productAdd'}}">Add Product</a></li>
+					<li><a href="{{pathFor 'invoiceSheet'}}">Invoices</a></li>
+					<li> <a href="{{pathFor 'myFiles'}}">My Files</a></li>
+					
+				
+				</ul>
+				<ul  class="nav pull-right">
+					<li>{{>loginButtons}} </li>
+				</ul>
+				
+			</div>
+		</div>
+	</header>
+</template>
+
