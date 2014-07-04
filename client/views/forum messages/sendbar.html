@@ -5,7 +5,11 @@
 	</div>
 </template>
 <template name="chats">
-
+	{{#if moreResults}}
+    	<div id="showMoreResults" style="margin-left: 25px;">
+        	<span class="loading">Loading...</span>
+    	</div>
+	{{/if}}
 	<div id='list' class="well well-lg">
 		{{#each showMessages}}
 		<pre style="word-break: keep-all"><strong>{{author}}</strong>: {{text}}</pre>

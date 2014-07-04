@@ -7,19 +7,38 @@ Template.myFiles.events({
       _id: this._id
     });
   }
-  }
+  },
+  'click .make-private': function(e, t){
+    if(confirm("Make this file private?"))
+    {
+      Meteor.call('makePrivate',this._id, function(error, id){});
+    }
+  },
+  'click .make-public': function(e, t){
+    if(confirm("Make this file public?"))
+    {
+      Meteor.call('makePublic',this._id, function(error, id){});
+    }
+  },
 });
 Template.myFiles.helpers({
   dataEntries: function(){
     Session.get('files');
     var a = Meteor.userId();
     console.log(a);
-        return Files.find({'aliases': a});
+
+        return Files.find({'aliases': a},{sort: {uploadDate: -1}});
+
       //return Files.find({'metadata.owner': a});    
   },
 
   time: function(){
+    //window.location.reload();
     console.log(Files.findOne(this._id));
+    if(!Files.findOne(this._id))
+    {
+      window.location.reload();
+    }
     var p = "" + Files.findOne(this._id).contentType + Files.findOne(this._id).aliases[0];
     console.log(p);
     var a = ""+Files.findOne(this._id).uploadDate
@@ -29,6 +48,9 @@ Template.myFiles.helpers({
     if(hours > 12)
     {
       return s + " " + (hours-12).toString() + t.toString().substring(18,24) + " PM" + p
+    }else if(hours === 0)
+    {
+      return s+ " "+ (hours +12).toString() + t.toString().substring(18,24) + " AM" + p
     }else
     {
       return t.toString().substring(4,24) +" AM" + p;
@@ -95,6 +117,9 @@ fixlength: function(){
   },
 userId: function(){
   return Meteor.userId();
+},
+isPublic: function(){
+  return Files.findOne(this._id).contentType === "true";
 }
 });
 

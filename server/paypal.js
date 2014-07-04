@@ -57,7 +57,7 @@ Meteor.methods({
     return token;
   },
   'createPaypalPayment': function(product) {
-    //print("Start Process");
+    console.log("Start Process");
     var payment, res, token;
     token = Meteor.call('getPaypalToken');
     console.log("Got Token");

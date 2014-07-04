@@ -39,18 +39,18 @@
           </td>
           <td style="align: right">
           		{{#if received}}
-          			<p>Received</p>
+          			<button type="button" class="close xyz" disabled>Received</button>
           		{{else}}
-          			 <button type="button" class="close xyz" aria-hidden="true">Give Item</button>
+          			 <button type="button" class="close xyz">Give Item</button>
           		{{/if}}
           </td>
           <td style="align: right">
           	{{#if refunded}}
           	
-          		<p> Refunded</p>
+          		<button type="button" class="close del-file" disabled >Refunded</button>
          	
           	{{else}}
-            <button type="button" class="close del-file">Refund</button>
+            <button id = "refund button" type="button" class="close del-file">Refund</button>
         	
         	{{/if}}
           </td>

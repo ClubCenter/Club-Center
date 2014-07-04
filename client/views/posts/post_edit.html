@@ -19,9 +19,15 @@
 			<label class="control-label" for="title">Pin It (Don't Enter anything for a regular post)</label>
 			<div class="controls">
 				{{#if pinned}}
-				<input name="pin" type="text" value="{{pinned}}"/>
+				<select name="pin">
+					<option >Do not pin</option>
+					<option selected>Pin it</option>
+				</select>
 				{{else}}
-				<input name="pin" type="text" value=""/>
+				<select name="pin">
+					<option selected>Do not pin</option>
+					<option>Pin it</option>
+				</select>
 				{{/if}}
 				
 			</div>

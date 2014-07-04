@@ -12,23 +12,32 @@ Template.collTest.events({
 Template.collTest.helpers({
   dataEntries: function(){
     Session.get('files');
-      return Files.find({'contentType': "true"});    
+      return Files.find({'contentType': "true"},{sort: {uploadDate: -1}});   
+
   },
 
   time: function(){
-    console.log(Files.findOne(this._id));
-    var p = "" + Files.findOne(this._id).contentType + Files.findOne(this._id).aliases[0];
-    console.log(p);
+    //console.log(Files.findOne(this._id));
+    //var p = "" + Files.findOne(this._id).contentType + Files.findOne(this._id).aliases[0];
+    //console.log(p);
+    //window.location.reload();
+     if(!Files.findOne(this._id))
+    {
+      window.location.reload();
+    }
     var a = ""+Files.findOne(this._id).uploadDate
     var t = new Date(a);
     var hours = t.getHours();
     var s = t.toString().substring(4, 15);
     if(hours > 12)
     {
-      return s + " " + (hours-12).toString() + t.toString().substring(18,24) + " PM" + p
+      return s + " " + (hours-12).toString() + t.toString().substring(18,24) + " PM" 
+    }else if(hours === 0)
+    {
+      return s+ " "+ (hours +12).toString() + t.toString().substring(18,24) + " AM" 
     }else
     {
-      return t.toString().substring(4,24) +" AM" + p;
+      return t.toString().substring(4,24) +" AM";
     }
   },
   owner: function() {

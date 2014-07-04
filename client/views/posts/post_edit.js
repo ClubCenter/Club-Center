@@ -12,7 +12,7 @@ Template.postEdit.events({
 		var postProperties = {
 			message: $(e.target).find('[name=message]').val(),
 			title: $(e.target).find('[name=title]').val(),
-			pinned: $(e.target).find('[name=pin]').val() !== ""
+			pinned: $(e.target).find('[name=pin]').val() === "Pin it"
 		}
 		
 		Posts.update(currentPostId, {$set: postProperties}, function(error) {

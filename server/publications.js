@@ -1,6 +1,6 @@
-Meteor.publish('posts', function(options){
+Meteor.publish('posts', function(limit){
 
-	return Posts.find();
+	return Posts.find({}, { limit: limit , sort: { pinned: -1, submitted : -1} });
 });
 
 Meteor.publish('comments', function(postId){
@@ -14,8 +14,9 @@ Meteor.publish('notifications', function(){
 
 });
 
-Meteor.publish('questions', function(){
-	return Questions.find();
+Meteor.publish('questions', function(limit){
+	//return Questions.find({},{limit: limit});
+	return Questions.find({}, { limit: limit , sort: {latestUpdate: -1} });
 });
 
 Meteor.publish('answers', function(questionId){
@@ -49,4 +50,15 @@ Meteor.publish("payments", function(){
 
 Meteor.publish("invoices", function(){
 	return Invoices.find();
+});
+
+Meteor.publish("singlePost", function(postId){
+	//console.log(postId);
+	//cursor.rewind();
+	return Posts.find({_id: postId});
+});
+
+Meteor.publish("singleQuestion", function(questionId){
+
+	return Questions.find({_id: questionId});
 })

@@ -66,11 +66,13 @@ if (Meteor.isClient) {
 
     // When a file is added via drag and drop
     Files.resumable.on('fileAdded', function (file) {
-
-      var a = "" + confirm("Would like to make this file public? \b Pressing cancel will make the file private to only you")
-      console.log(a);
+      console.log(document.URL);
+      var a = document.URL === "http://congregation.meteor.com/fileCenter"
+      console.log("" + a);
+      a = "" + a;
     	var b = "" + Meteor.userId();
       console.log(b);
+     //var a = "true";
       // Create a new file in the file collection to upload
       Files.insert({
         time: Date.now(),
@@ -88,6 +90,7 @@ if (Meteor.isClient) {
           Session.set('files', Files.find().count())
           Files.resumable.upload();
           console.log("Uploaded?");
+          //window.location.reload();
         }
       );
       
@@ -95,3 +98,30 @@ if (Meteor.isClient) {
   });
 
 }
+
+Meteor.methods({
+  makePrivate: function(fileId){
+    Files.update(
+      {_id: fileId},
+      {
+        $set: {'contentType': "false"}
+      }
+
+      );
+  },
+  makePublic: function(fileId){
+    Files.update(
+      {_id: fileId},
+      {
+        $set: {'contentType': "true"}
+      }
+
+      );
+  }
+
+});
+
+    
+
+   
+ 

@@ -13,17 +13,21 @@ Template.invoiceItem.events({
 		{
 		var url = this.refundURL;
 		var id = this._id
+		document.getElementById("refund button").innerHTML = "Refunding";
+
+		
 		Meteor.call('executeRefund', url, function(err, res){
 			if(res)
 			{
 
-				console.log('Refund');
+				alert("Refund Successful")
 				console.log(id);
 				Invoices.update(id,{$set: {refunded: true}}, function(error){});
 			}
 			else
 			{
-				console.log("Error");
+				alert("Refund Failed")
+				document.getElementById("refund button").innerHTML = "Refund";
 			}
 		});
 	}
@@ -49,7 +53,10 @@ Template.invoiceItem.helpers({
 		if(hours > 12)
 		{
 			return s + " " + (hours-12).toString() + t.toString().substring(18,24) + " PM"
-		}else
+		}else if(hours === 0)
+    {
+      return s+ " "+ (hours +12).toString() + t.toString().substring(18,24) + " AM" 
+    }else
 		{
 			return t.toString().substring(4,24) +" AM"
 		}
